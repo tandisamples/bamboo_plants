@@ -11,3 +11,7 @@ Classes
 - Bamboo
 - CLI
 - Scraper
+
+
+- get real categories
+- allow user select 2nd category

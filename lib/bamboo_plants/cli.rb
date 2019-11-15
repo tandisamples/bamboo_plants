@@ -1,21 +1,21 @@
 class BambooPlants::CLI 
   def call 
     puts "\nWelcome to Lewis Bamboo!\n"
-    get_advertised_categories
+    get_categories
     list_plants
     get_bamboo_category
     # get_bamboo_type
   end
   
-  def get_advertised_categories
-    # to be scraped instead
-    @category = ['Screening Bamboo', 'Cold Hardy Bamboo', 'Giant Bamboo', 'Indoor and Container Bamboo', 'Clumping Bamboo', 'Staff Picks', 'Large Wholesale Sizes (Frieght Shipping)']
+  def get_categories
+    @category = BambooPlants::Category.all
+    # @category = ['Screening Bamboo', 'Cold Hardy Bamboo', 'Giant Bamboo', 'Indoor and Container Bamboo', 'Clumping Bamboo', 'Staff Picks', 'Large Wholesale Sizes (Frieght Shipping)']
   end
   
     def list_plants
       puts 'Choose a category to see types of bamboo.'
       @category.each.with_index(1) do |category, index|
-        puts "#{index}. #{category}"
+        puts "#{index}. #{category.name}"
     end
   end
   
