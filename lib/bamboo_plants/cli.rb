@@ -31,6 +31,10 @@ class BambooPlants::CLI
   def show_types_for(chosen_category)
     category = @category[chosen_category - 1]
     puts "Here are types for #{category}"
-    binding.pry 
+    ## To implement
+    # BambooPlants::Category.all.each.with_index(1) do | category |
+    # puts category.name 
+    # end
+    # get_bamboo_type
   end
 end
