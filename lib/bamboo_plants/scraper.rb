@@ -4,7 +4,7 @@ class BambooPlants::Scraper
     doc = Nokogiri::HTML(open("https://lewisbamboo.com/category/bamboo-plants/"))
     
     categories = doc.css("ul.products h2")
-    
+    types
     categories.each do |c|
       name = c.text
       BambooPlants::Category.new(name)

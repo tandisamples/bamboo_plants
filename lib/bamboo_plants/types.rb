@@ -1,5 +1,6 @@
 class BambooPlants::Type
   attr_accessor :name, :category, :plant_info
+  
   @@all = []
   
   def initialize(name, category)
@@ -16,6 +17,11 @@ class BambooPlants::Type
   
   def add_to_category
   @category.types << self unless @category.types.include?(self)
+  
+end
+  
+  def plant_type
+    @plant_type || = doc.css("ul.products.columns-4 h2")
 end
   
   def save
