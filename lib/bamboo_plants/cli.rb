@@ -5,7 +5,6 @@ class BambooPlants::CLI
     list_plants
     get_bamboo_category
     # get_bamboo_type
-    
   end
   
   def get_advertised_categories
@@ -21,12 +20,17 @@ class BambooPlants::CLI
   end
   
   def get_bamboo_category
-    chosen_category = gets.strip
-    # if valid_input(chosen_category.to_i, @category)
-    # end
-  end
+    chosen_category = gets.strip.to_i
+    show_types_for(chosen_category) if valid_input(chosen_category, @category)
+    end
   
   def valid_input(input, data)
     input.to_i <= data.length && input.to_i > 0
+  end
+  
+  def show_types_for(chosen_category)
+    category = @category[chosen_category - 1]
+    puts "Here are types for #{category}"
+    binding.pry 
   end
 end
