@@ -9,4 +9,9 @@ class BambooPlants::Scraper
       BambooPlants::Category.new(name)
     end
   end
+  
+  def self.scrape_types(category)
+    BambooPlants::Type.new("Types of Plants", category)
+    BambooPlants::Type.new("NO Types of Plants", category)
+  end
 end

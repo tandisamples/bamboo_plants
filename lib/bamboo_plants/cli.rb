@@ -1,4 +1,6 @@
 class BambooPlants::CLI 
+  
+  
   def call 
     puts "\nWelcome to Lewis Bamboo!\n"
     get_categories
@@ -30,11 +32,10 @@ class BambooPlants::CLI
   
   def show_types_for(chosen_category)
     category = @category[chosen_category - 1]
+    # BambooPlants::Type.new("Types of Plants", category)
+    # BambooPlants::Type.new("NO Types of Plants", category)
+    types = category.types
     puts "Here are types for #{category.name}"
-    ## To implement
-    # BambooPlants::Category.all.each.with_index(1) do | category |
-    # puts category.name 
-    # end
-    # get_bamboo_type
+    binding.pry
   end
 end
