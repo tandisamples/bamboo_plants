@@ -1,4 +1,5 @@
 class BambooPlants::Scraper
+  
   def self.scrape_categories
     doc = Nokogiri::HTML(open("https://lewisbamboo.com/category/bamboo-plants/"))
     

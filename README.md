@@ -1,4 +1,4 @@
-HELLO WORLD
+LEWIS BAMBOO PLANTS!
 
 # BambooPlants
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: git clone 'https://github.com/tandisamples/bamboo_plants.git'
+      cd bamboo_plants/
+      bundle install
 
 ## Development
 
