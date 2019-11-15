@@ -8,8 +8,8 @@ class BambooPlants::CLI
   end
   
   def get_categories
+    BambooPlants::Scraper.scrape_categories
     @category = BambooPlants::Category.all
-    # @category = ['Screening Bamboo', 'Cold Hardy Bamboo', 'Giant Bamboo', 'Indoor and Container Bamboo', 'Clumping Bamboo', 'Staff Picks', 'Large Wholesale Sizes (Frieght Shipping)']
   end
   
     def list_plants
@@ -30,7 +30,7 @@ class BambooPlants::CLI
   
   def show_types_for(chosen_category)
     category = @category[chosen_category - 1]
-    puts "Here are types for #{category}"
+    puts "Here are types for #{category.name}"
     ## To implement
     # BambooPlants::Category.all.each.with_index(1) do | category |
     # puts category.name 

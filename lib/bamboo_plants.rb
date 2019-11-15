@@ -5,6 +5,7 @@ require_relative "./bamboo_plants/scraper"
 
 require 'pry'
 require 'nokogiri'
+require 'open-uri'
 
 module BambooPlants
   class Error < StandardError; end

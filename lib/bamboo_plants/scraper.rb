@@ -1,6 +1,12 @@
 class BambooPlants::Scraper
-  def scrape_categories
+  def self.scrape_categories
     doc = Nokogiri::HTML(open("https://lewisbamboo.com/category/bamboo-plants/"))
-    binding.pry
+    
+    categories = doc.css("ul.products h2")
+    
+    categories.each do |c|
+      name = c.text
+      BambooPlants::Category.new(name)
+    end
   end
 end

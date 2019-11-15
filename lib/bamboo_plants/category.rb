@@ -9,6 +9,7 @@ class BambooPlants::Category
   end
   
   def self.all
+    BambooPlants::Scraper.scrap_categories if @@all.empty?
     @@all
   end
   
