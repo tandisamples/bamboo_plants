@@ -14,12 +14,9 @@ class BambooPlants::Category
     @@all
   end
   
-  def types
-    # check to see if there are any types
+  def get_types
     BambooPlants::Scraper.scrape_types(self) if @types.empty?
-    @types
-    # access type
-  end
+end
   
   def save
     @@all << self

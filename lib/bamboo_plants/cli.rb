@@ -10,7 +10,6 @@ class BambooPlants::CLI
   end
   
   def get_categories
-    BambooPlants::Scraper.scrape_categories
     @category = BambooPlants::Category.all
   end
   
@@ -34,8 +33,10 @@ class BambooPlants::CLI
     category = @category[chosen_category - 1]
     # BambooPlants::Type.new("Types of Plants", category)
     # BambooPlants::Type.new("NO Types of Plants", category)
-    types = category.types
+    category.get_types
     puts "Here are types for #{category.name}"
-    binding.pry
+    category.types.each.with_index(1) do |type, idx|
+      puts "#{idx}. #{type.name}"
+    end
   end
 end
