@@ -1,14 +1,13 @@
 class BambooPlants::Category
+  
   attr_accessor :name, :types
-  @@all = []
+  @@all = [] #all array
   
-  # a category has a name, type, type information
-  
-  def initialize(name)
+  def initialize(name, types)
     @name = name
-    #@types = []
+    @types = type
     save
-    # instance variable @name
+    # saving the objects
   end
   
   def self.all
@@ -21,6 +20,6 @@ class BambooPlants::Category
 #end
   
   def save
-    @@all << self
+    @@all << self #saving or remembering the object
   end
 end
