@@ -2,7 +2,8 @@ class BambooPlants::CLI
   
   
   def call 
-    puts "\nWelcome to Lewis Bamboo!\n"
+    #puts "#{colorize("Hello World", "yellow")}"
+    puts "\nWelcome to Lewis Bamboo!\n".red.bold 
     get_categories
     list_plants
     get_bamboo_category
@@ -14,7 +15,7 @@ class BambooPlants::CLI
   end
   
     def list_plants
-      puts 'Choose a category to see types of bamboo.'
+      puts 'Choose a category to see types of bamboo:'
       @category.each.with_index(1) do |category, index|
         puts "#{index}. #{category.name}"
     end
@@ -29,14 +30,14 @@ class BambooPlants::CLI
     input.to_i <= data.length && input.to_i > 0
   end
   
-  def show_types_for(chosen_category)
-    category = @category[chosen_category - 1]
+  #def show_types_for(chosen_category)
+   # category = @category[chosen_category - 1]
     # BambooPlants::Type.new("Types of Plants", category)
     # BambooPlants::Type.new("NO Types of Plants", category)
-    category.get_types
-    puts "Here are types for #{category.name}"
-    category.types.each.with_index(1) do |type, idx|
-      puts "#{idx}. #{type.name}"
-    end
+    #category.get_types
+   # puts "Here are types for #{category.name}"
+   # category.types.each.with_index(1) do |type, idx|
+    #  puts "#{idx}. #{type.name}"
+   # end
   end
 end

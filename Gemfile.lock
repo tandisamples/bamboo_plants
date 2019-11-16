@@ -23,6 +23,7 @@ PLATFORMS
 DEPENDENCIES
   bamboo_plants!
   bundler (~> 2.0)
+  nokogiri
   pry
   rake (~> 10.0)
 
