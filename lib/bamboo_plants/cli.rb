@@ -7,8 +7,10 @@ class BambooPlants::CLI
     puts "Check out our list of our bamboo plants with the number of choices within each category."
     get_categories
     bamboo_categories
-  #get_bamboo_category
-  # get_bamboo_type
+    get_bamboo_category
+    get_types
+    bamboo_types
+    get_bamboo_type
   end  
   
     def get_categories
@@ -21,36 +23,29 @@ class BambooPlants::CLI
         puts "#{index}. #{category.name}"
       # adding a category number instead of typing category name
     end
-    
-end
+   end 
+    def get_bamboo_category
+      chosen_category = gets.strip.to_i
+      show_types_for(chosen_category) if valid_input(chosen_category, @category)
+    end
   
-  #def get_categories
-   # @category = BambooPlants::Category.all
-  #end
+    def get_types
+      @type = BambooPlants::Type.all
+    end
   
-    #def list_plants
-     # puts 'Choose a category number to see types of bamboo:'
-     # @category.each.with_index(1) do |category, index|
-     #   puts "#{index}. #{category.name}"
-   # end
-
+    def bamboo_types
+      puts "\nNow choose a type of plant by number: \n".bold
+      @type.each.with_index(1) do |type, index|
+      puts "#{index}. #{type.name}"
+      # adding a category number instead of typing category name
+    end
+  end  
+    def get_bamboo_type
+      chosen_category = gets.strip.to_i
+      show_types_for(chosen_category) if valid_input(chosen_category, @type)
+    end
   
-#  def get_bamboo_category
-  #  chosen_category = gets.strip.to_i
-  #  show_types_for(chosen_category) if valid_input(chosen_category, @category)
-  #  end
-  
- # def valid_input(input, data)
-#    input.to_i <= data.length && input.to_i > 0
- # end
-  
-  #def show_types_for(chosen_category)
-   # category = @category[chosen_category - 1]
-    # BambooPlants::Type.new("Types of Plants", category)
-    # BambooPlants::Type.new("NO Types of Plants", category)
-    #category.get_types
-   # puts "Here are types for #{category.name}"
-   # category.types.each.with_index(1) do |type, idx|
-    #  puts "#{idx}. #{type.name}"
-   # end
+     def valid_input(input, data)
+    input.to_i <= data.length && input.to_i > 0
+   end
 end
