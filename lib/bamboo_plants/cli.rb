@@ -15,26 +15,27 @@ class BambooPlants::CLI
   
     # def get_categories
     #  @category = BambooPlants::Category.all
-      
     # end
   
     def bamboo_categories
       BambooPlants::Category.all.each.with_index(1) do |category, index|
     #  @categories.each.with_index(1) do |category, index|
         puts "#{index}. #{category.name}"
-        #puts "\nChoose a bamboo plant category number: \n".bold
-      
-    # adding a category number instead of typing category name
-    
-    end
+          # adding a category number instead of typing category name
+       end
    end 
    
-   
     def get_bamboo_category
-      puts "\nChoose a category by number to see types of bamboo:\n"
-      chosen_category = gets.strip.to_i
-#      show_types_for(chosen_category) if valid_input(chosen_category, @category)
-   
+      puts "\nChoose a category by number to see types of bamboo:".blue
+      input = gets.strip.to_i  # represents a number
+      max_value = BambooPlants::Category.all.length  # max makes it more flexible when using the method for other list
+      if input.between?(1,max_value)  
+        #valid input
+      else
+        #not valid input
+        puts "\nPlease put in a valid category number".red.bold
+        get_bamboo_category
+      end
     end
   
   #  def get_types(category)
@@ -63,9 +64,9 @@ class BambooPlants::CLI
 #    end
 #end
   
-     def valid_input(input, data)
-    input.to_i <= data.length && input.to_i > 0
-   end
+     # def valid_input(input, data)
+   # input.to_i <= data.length && input.to_i > 0
+  # end
    
    
 end
