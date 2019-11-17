@@ -42,7 +42,7 @@ class BambooPlants::CLI
     end
     
     def display_categories_items(category)
-      
+      BambooPlants::Scraper.scrape_types(category)
     end 
   
   #  def get_types(category)
