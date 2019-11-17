@@ -1,7 +1,7 @@
 class BambooPlants::Type
   
-  attr_accessor :name
-  # attr_reader :types
+  attr_accessor :productname, :price
+  
   @@all = [] #all array
   
   def initialize(type)
@@ -12,7 +12,7 @@ class BambooPlants::Type
   end
   
   def self.all
-    BambooPlants::Scraper.scrape_type if @@all.empty?
+    BambooPlants::Scraper.scrape_types if @@all.empty?
     @@all
   end
   

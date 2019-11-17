@@ -6,7 +6,7 @@ class BambooPlants::Category
   
   def initialize(name)
     @name = name
-    #@type = []
+  
     save
     # saving the objects
   end

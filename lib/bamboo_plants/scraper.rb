@@ -14,14 +14,15 @@ class BambooPlants::Scraper
     
     end
     end   
-  def self.scrape_types
+  def self.scrape_types(category)
     doc = Nokogiri::HTML(open("https://lewisbamboo.com/category/bamboo-plants/"))
     
     types = doc.css("ul.products a")
     
     types.each do |type|
-      name = type.text
+      category.types << type.text
     BambooPlants::Type.new(name)
+   
   end
 end    
   end
