@@ -8,6 +8,7 @@ class BambooPlants::CLI
     #get_categories
     bamboo_categories
     get_bamboo_category
+    display_categories_items
     #get_types
     #bamboo_types
     #get_bamboo_type
@@ -26,17 +27,23 @@ class BambooPlants::CLI
    end 
    
     def get_bamboo_category
-      puts "\nChoose a category by number to see types of bamboo:".blue
+      puts "\nChoose a category by number to see types of bamboo:".blue.bold
       input = gets.strip.to_i  # represents a number
       max_value = BambooPlants::Category.all.length  # max makes it more flexible when using the method for other list
-      if input.between?(1,max_value)  
-        #valid input
+      if input.between?(1,max_value) #valid input
+        category = BambooPlants::Category.all[input - 1] 
+        display_categories_items(category)
       else
         #not valid input
-        puts "\nPlease put in a valid category number".red.bold
+        puts "\nPlease put in a valid category number:".red.bold
+        bamboo_categories
         get_bamboo_category
       end
     end
+    
+    def display_categories_items(category)
+      
+    end 
   
   #  def get_types(category)
    #   BambooPlants::Type.scrape_types(category)
