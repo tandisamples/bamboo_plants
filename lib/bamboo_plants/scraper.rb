@@ -9,7 +9,7 @@ class BambooPlants::Scraper
     array_of_links = categories.css("li h2.woocommerce-loop-category__title") # OR category_name = doc.css(".products h2").text
 
       array_of_links.map do |link|
-      
+    category_hash = []
       BambooPlants::Category.new(link.text, hrefs)
     end
   #return will now be an array of objects

@@ -4,11 +4,29 @@ class BambooPlants::CLI
   def call 
     
     puts "\nWelcome to Lewis Bamboo!\n".red.bold
-    puts "Check out our list of our bamboo plants with the number of choices within each category."
-    # Scrape main webpage
+    puts "Here's our bamboo nursery, which includes the bamboo catagories & number of types within each. "
+    get_categories
+    list_bamboo_categories
+    categories = BambooPlants::Category.all
+    puts "\nChoose which category you would like to see:".on_blue.bold
+    
+    #list categories
+    
+    
+    end
+    
+    #respond to input
+    def get_categories
     url = "https://lewisbamboo.com/category/bamboo-plants/"
-    categories = BambooPlants::Scraper.scrape_categories(url)
-    puts categories[1].name
-    puts categories[1].url
-  end  
+    BambooPlants::Scraper.scrape_categories(url)
+    @category = BambooPlants::Category.all
+    end
+  
+  def list_bamboo_categories
+    @category.each.with_index(1) do |category, index|
+      puts "#{index}. #{category.name}"
+  end
+end  
+  
+  
 end
