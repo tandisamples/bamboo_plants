@@ -1,14 +1,13 @@
 class BambooPlants::Category
   
-  attr_accessor :name
-  # attr_reader :types
-  @@all = [] #all array
+  attr_accessor :name, :url
+
+  @@all = [] #array
   
-  def initialize(name)
+  def initialize(name, url)
     @name = name
-  
-    save
-    # saving the objects
+    @url = url
+    save # saving the objects
   end
   
   def self.all
@@ -16,11 +15,8 @@ class BambooPlants::Category
     @@all
   end
   
-  #def get_types
-    #BambooPlants::Scraper.scrape_types(self) if @@types.empty?
-#end
-  
   def save
     @@all << self #saving or remembering the object
   end
+  
 end
