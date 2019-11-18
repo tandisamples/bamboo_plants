@@ -45,9 +45,10 @@ class BambooPlants::CLI
   def display_categories_items(category)
     
     BambooPlants::Scraper.scrape_types(category)
-    
+    category.types.each.with_index(1) do |types, index|
+      puts "#{index}. #{types.productname}"
   end
-  
+end
     
 end  
   

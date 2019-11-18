@@ -1,12 +1,12 @@
 class BambooPlants::Type
   
-  attr_accessor :productname, :price
+  attr_accessor :productname, :category
   
   @@all = [] #all array
   
-  def initialize(type)
-    @type = type
-    #@type = []
+  def initialize(productname, category)
+    @productname = productname
+    @category = category
     save
     # saving the objects
   end

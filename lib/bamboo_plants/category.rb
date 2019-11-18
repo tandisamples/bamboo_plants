@@ -4,7 +4,7 @@ class BambooPlants::Category
 
   @@all = [] #array
   
-  def initialize(name,url)
+  def initialize(name, url)
     @name = name
     @url = url
     save # saving the objects
@@ -12,6 +12,12 @@ class BambooPlants::Category
     
   end
   
+  def types
+    BambooPlants::Type.all.select do |t|
+      t.category == self
+  end
+end
+
   def self.all
     BambooPlants::Scraper.scrape_categories if @@all.empty?
     @@all
