@@ -4,10 +4,12 @@ class BambooPlants::Category
 
   @@all = [] #array
   
-  def initialize(name, url)
+  def initialize(name,url)
     @name = name
     @url = url
     save # saving the objects
+   
+    
   end
   
   def self.all
@@ -18,5 +20,5 @@ class BambooPlants::Category
   def save
     @@all << self #saving or remembering the object
   end
-  
+  attr_reader :name, :url
 end

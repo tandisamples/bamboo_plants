@@ -34,7 +34,7 @@ class BambooPlants::CLI
       
         category = BambooPlants::Category.all[input - 1] 
         
-        display_categories_items(input)
+        display_categories_items(category)
       else
         puts "\nPlease put in a valid category number".red.bold
         list_bamboo_categories  #recall list 
@@ -43,6 +43,8 @@ class BambooPlants::CLI
   end
   
   def display_categories_items(category)
+    
+    BambooPlants::Scraper.scrape_types(category)
     
   end
   
