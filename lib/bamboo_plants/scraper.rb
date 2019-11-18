@@ -4,8 +4,10 @@ class BambooPlants::Scraper
     
     doc = Nokogiri::HTML(open("https://lewisbamboo.com/category/bamboo-plants/"))
     
-    categories = doc.css("ul.products h2")
-  
+    categories = doc.css(".products").first 
+   # href = categories.css("a").first["href"]
+    hrefs = doc.css(".products a").map { |anchor| anchor["href"] }
+    binding.pry
     category_hash = []
     
     categories.each do |category|
