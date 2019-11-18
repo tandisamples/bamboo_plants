@@ -4,6 +4,8 @@ LEWIS BAMBOO PLANTS!
 
 Find out about Bamboo Plants!
 
+In this application, you will be able to select a category of bamboo plants. 
+
 ## Installation
 
 Add this line to your application's Gemfile:
