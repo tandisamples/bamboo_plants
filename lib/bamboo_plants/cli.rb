@@ -30,20 +30,21 @@ class BambooPlants::CLI
     input = gets.strip.to_i  # represents a number
       max_value = BambooPlants::Category.all.length  # max makes it more flexible when using the method for other list
       
-   #   if input.between?(1,max_value) #valid input
+      if input.between?(1,max_value) #valid input
       
-  #      category = @category.all[input - 1] 
+        category = BambooPlants::Category.all[input - 1] 
         
-  #      display_categories_items(category)
-  #  else
-        #not valid input
-  #      puts "\nPlease put in a valid category number:".red.bold
-  #      get_categories
-  #      chosen_category
- #     end
-
+        display_categories_items(input)
+      else
+        puts "\nPlease put in a valid category number".red.bold
+        list_bamboo_categories  #recall list 
+        chosen_category
+    end
   end
   
+  def display_categories_items(category)
+    
+  end
   
     
 end  
